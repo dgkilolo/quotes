@@ -7,9 +7,13 @@ import { Quote } from '../quote';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
+
+  toggleDetails(index) {
+    this.quotes[index].showDescription = !this.quotes[index].showDescription;
+  }
   
   quotes: Quote[] = [
-    new Quote ("This is the first quote.", "Wise Man")
+    new Quote ("This is the first quote.", "Wise Man", "A Man", new Date(2019,2,14))
   ];
 
   addNewQuote (quote) {

@@ -3,10 +3,13 @@
     <div class="col-md-6">
       <h1>Listed Quotes</h1>
       <ul>
-        <li *ngFor = 'let quote of quotes' >
-          {{ quote.name }}
-          <app-quote-details [quote]= 'quote' ></app-quote-details>
-        </li>
+        <div *ngFor = 'let quote of quotes; let i = index'  >
+          <li >{{ quote.name }}                
+            <button (click) = 'toggleDetails(i)' >Toggle Details</button>
+            <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>     
+          </li>       
+        </div>
+               
       </ul>
     </div>
     <div class="col-md-6">

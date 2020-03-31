@@ -1,3 +1,8 @@
 <div>
-  {{ quote.description }}
+  <p> <strong>Author: </strong>{{ quote.description }}</p>
+ 
+  <p> <strong>Submitted By: </strong>{{ quote.submittedBy }}</p>
+
+  <p> <strong>Posted:</strong>  {{ quote.time|timeCount }} </p>
+  
 </div>
