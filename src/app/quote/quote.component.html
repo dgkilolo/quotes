@@ -1,18 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <h1>Listed Quotes</h1>
+      <hr>
       <ul>
         <div *ngFor = 'let quote of quotes; let i = index'  >
-          <li >{{ quote.name }}                
-            <button (click) = 'toggleDetails(i)' >Toggle Details</button>
-            <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>     
-          </li>       
-        </div>
-               
+          <li >{{ quote.name }}   </li>              
+            <button class="btn btn-outline-primary" (click) = 'toggleDetails(i)' >Details</button><br><br>   
+            <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>   
+            <button (click) = 'upVote(i)'  >Like: {{quote.upVote}} </button> <br>
+            <button (click) = 'downVote(i)'  >Dislike: {{quote.downVote}} </button>                 
+        </div>            
       </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
       <app-quote-form (addQuote)="addNewQuote($event)" ></app-quote-form>
     </div>
   </div>

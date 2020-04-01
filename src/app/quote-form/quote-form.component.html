@@ -4,17 +4,26 @@
   <form (ngSubmit)='submitQuote()' #quoteForm = 'ngForm' >
     <div class="form-group">
       <label for="quote">Qoute:</label>
-      <textarea placeholder="Write your quote..." class="form-control" name="quote" id="quote" rows="3" [(ngModel)] = 'newQuote.name' #quote = 'ngModel' ></textarea>
+      <textarea required placeholder="Write your quote..." class="form-control" name="quote" id="quote" rows="3" [(ngModel)] = 'newQuote.name' #quote = 'ngModel' ></textarea>
+      <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+        <p>Quote is required</p>
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group">      
       <label for="author">Author:</label>
-      <input placeholder="The author of the quote..." type="text" class="form-control" name="author" id="author" [(ngModel)] = 'newQuote.description' #author = 'ngModel' >
+      <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+        <p>Author is required</p>
+      </div>
+      <input required placeholder="The author of the quote..." type="text" class="form-control" name="author" id="author" [(ngModel)] = 'newQuote.description' #author = 'ngModel' >      
     </div>
     <div class="form-group">
       <label for="author">Submitted by:</label>
-      <input placeholder="Your name here..." type="text" class="form-control" name="submittedBy" id="submittedBy" [(ngModel)] = 'newQuote.submittedBy' #submittedBy = 'ngModel' >
+      <input required placeholder="Your name here..." type="text" class="form-control" name="submittedBy" id="submittedBy" [(ngModel)] = 'newQuote.submittedBy' #submittedBy = 'ngModel' >
+      <div [hidden]="submittedBy.valid || submittedBy.pristine" class="alert alert-danger">
+        <p>Your name is required</p>
+      </div>
     </div>
     
-    <button type="submit">Add Quote</button>
+    <button class="btn btn-outline-success" type="submit">Add Quote</button>
   </form>
 </div>
