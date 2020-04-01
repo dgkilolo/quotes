@@ -8,6 +8,21 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
 
+  counter: number;
+  mostUpvotedQuote: number;
+  currentLikes: number;
+
+  highestLikes() {
+    this.mostUpvotedQuote = this.quotes[0].upVote
+    for (this.counter = 0; this.counter < this.quotes.length; this.counter ++) {
+      this.currentLikes = this.quotes[this.counter].upVote;
+      if(this.currentLikes > this.mostUpvotedQuote) {
+        this.mostUpvotedQuote = this.currentLikes
+      }
+    }
+    return this.mostUpvotedQuote
+  }
+
   upVote(index){
     this.quotes[index].upVote = this.quotes[index].upVote +1
   }
