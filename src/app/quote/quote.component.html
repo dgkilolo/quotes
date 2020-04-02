@@ -3,20 +3,15 @@
     <div class="col-md-7">
       <h1>Listed Quotes</h1>
       <hr>
-      <ul>
-        <div *ngFor = 'let quote of quotes; let i = index'  >
-          <li  >{{ quote.name }}   </li>              
-            <button class="btn btn-outline-primary" (click) = 'toggleDetails(i)' >Details</button><br><br>   
-            <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>   
-            <button (click) = 'upVote(i)'  >Like: {{quote.upVote}} </button> <br>
-            <button (click) = 'downVote(i)'  >Dislike: {{quote.downVote}} </button> 
-            
-            <p appHighlight *ngIf = "highestLikes() === quote.upVote && quote.upVote > 0 " > {{ quote.name }} </p>
-
-            <p *ngIf = "highestLikes()! == quote.upVote || quote.upVote === 0 " >  </p>
-
-            
-        </div>            
+      <ul>        
+        <li *ngFor = 'let quote of quotes; let i = index'>  
+          <p appHighlight *ngIf = "mostLikes() === quote.upVote && quote.upVote > 0 "> {{ quote.name }} </p>
+          <p *ngIf = "mostLikes()!== quote.upVote || quote.upVote === 0 " >  {{ quote.name }}</p>    
+          <button class="btn btn-outline-primary" (click) = 'toggleDetails(i)' >Details</button><br><br>   
+          <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>   
+          <button (click) = 'upVote(i)'>Like: {{quote.upVote}} </button> <br>
+          <button (click) = 'downVote(i)'>Dislike: {{quote.downVote}} </button> 
+        </li>             
       </ul>
     </div>
     <div class="col-md-5">
