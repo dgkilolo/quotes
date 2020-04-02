@@ -7,11 +7,11 @@
         <li *ngFor = 'let quote of quotes; let i = index'>  
           <p appHighlight *ngIf = "mostLikes() === quote.upVote && quote.upVote > 0 "> {{ quote.name }} </p>
           <p *ngIf = "mostLikes()!== quote.upVote || quote.upVote === 0 " >  {{ quote.name }}</p>    
-          <button class="btn btn-outline-primary" (click) = 'toggleDetails(i)' >Details</button><br><br>   
+          <button id="details" class="btn btn-outline-primary" (click) = 'toggleDetails(i)' >Details</button>   
           <app-quote-details *ngIf = 'quote.showDescription' [quote]= 'quote' ></app-quote-details>   
-          <button (click) = 'upVote(i)'>Like: {{quote.upVote}} </button> <br>
-          <button (click) = 'downVote(i)'>Dislike: {{quote.downVote}} </button> 
-        </li>             
+          <button class="btn btn-outline-success" (click) = 'upVote(i)'>Like: {{quote.upVote}} </button>           
+          <button class="btn btn-outline-danger" (click) = 'downVote(i)'>Dislike: {{quote.downVote}} </button> <br><br><br>
+        </li>              
       </ul>
     </div>
     <div class="col-md-5">
