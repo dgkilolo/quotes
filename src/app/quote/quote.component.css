@@ -1,6 +1,5 @@
 .container {
-  background-color: tomato;
-  
+  background-color: tomato;  
 }
 h1 {
   text-align: center;
@@ -14,6 +13,5 @@ p {
   font-family: monospace;
 }
 .btn {
-  background-color:rgb(232, 229, 225);
- 
+  background-color:rgb(232, 229, 225); 
 }

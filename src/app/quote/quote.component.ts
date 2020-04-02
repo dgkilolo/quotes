@@ -8,7 +8,7 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
 
-  count: number; mostUpvote: number; likes: number;   
+  count: number;  mostUpvote: number;  likes: number;   
   mostLikes() {
     this.mostUpvote = this.quotes[0].upVote
     for (this.count = 0; this.count < this.quotes.length; this.count ++) {
