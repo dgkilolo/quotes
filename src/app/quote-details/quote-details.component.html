@@ -1,8 +1,5 @@
 <div>
-  <p> <strong>Author: </strong>{{ quote.description }}</p>
- 
+  <p> <strong>Author: </strong>{{ quote.description }}</p> 
   <p> <strong>Submitted By: </strong>{{ quote.submittedBy }}</p>
-
-  <p> <strong>Posted on:</strong>  {{ quote.time|timeCount | date: 'fullDate' }} <strong> at: </strong>{{ quote.time|timeCount | date: 'shortTime' }} </p>
-  
+  <p> <strong>Posted on:</strong>  {{ quote.time|timeCount | date: 'fullDate' }} <strong> at: </strong>{{ quote.time|timeCount | date: 'shortTime' }} </p>  
 </div>
